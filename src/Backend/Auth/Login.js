@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 import { useAuth } from '../../contexts/Backend/AuthContext';
-import avatar from "./user.svg";
+import avatar from "../assets/user.svg";
 import "./Login.css";
 // axios.defaults.baseURL = 'http://localhost:8000';
 // // axios.defaults.headers.common['Authorization'] = '';
@@ -13,9 +13,11 @@ const Login = ()  => {
 	const [password, setPassword] = useState('');
 	const [remember, setRemember] = useState(false);
 	const wrap = useRef();
-	const { login } = useAuth();
+	// const { login } = useAuth();
+	const navigate = useNavigate();
 	const login_handle = () => {
-		login(email, password, remember);
+		navigate('/dashboard');
+		// login(email, password, remember);
 	}
 	return (
 		<div className="wrap" ref={wrap}>
