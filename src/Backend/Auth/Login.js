@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 import { useAuth } from '../../contexts/Backend/AuthContext';
@@ -13,12 +13,19 @@ const Login = ()  => {
 	const [password, setPassword] = useState('');
 	const [remember, setRemember] = useState(false);
 	const wrap = useRef();
-	// const { login } = useAuth();
+	const { login } = useAuth();
 	const navigate = useNavigate();
 	const login_handle = () => {
+		localStorage.setItem('key', JSON.stringify({name: 'nasir', email: 'nasrullah23a@gmail.com'}));
 		navigate('/dashboard');
 		// login(email, password, remember);
 	}
+	useEffect(() => {
+		let key = localStorage.getItem('key');
+		if(key) {
+			navigate('/dashboard')
+		};
+	}, []);
 	return (
 		<div className="wrap" ref={wrap}>
 			<div className="frm">

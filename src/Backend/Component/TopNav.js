@@ -13,7 +13,6 @@ export default function TopNav() {
             <Link to="/" className="hidden_home">ADMIN PANEL</Link>
             <div className="setting_drop">
                 <Dropdown />
-                <Dropdown />
             </div>
         </div>
     );
